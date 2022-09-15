@@ -1,0 +1,27 @@
+div.containerPokemon {
+    background-image: linear-gradient(to right, #8e2de2, #4a00e0);;
+    text-align: center;
+}
+
+div.selector {
+    text-align: center;
+}
+
+h1.detail{
+    display: block;
+    text-align: center;
+}
+
+button {
+    cursor: pointer;
+    background-color: rgb(252, 255, 47);
+    margin: 5em;
+    padding: 10px 20px;
+    border-width: 10px;
+    border-color: red;
+}
+
+button.buttonPokemon{
+    width: 200px;
+    
+}

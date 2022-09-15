@@ -1,0 +1,43 @@
+div.footer {
+    background-color: darkblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+p {
+    text-align-last: center;
+    width: 330px;
+    margin: 30px;
+    color: white;
+    align-self: center;
+}
+
+div.icons {
+    display: flex;
+    align-items: center;
+}
+
+.icon1 {
+    background-color: darkblue;
+    cursor: pointer;
+    margin: 5px;
+    border-width: 0;
+
+}
+
+.icon2 {
+    background-color: darkblue;
+    cursor: pointer;
+    margin: 5px;
+    border-width: 0;
+
+}
+
+.icon3 {
+    background-color: darkblue;
+    cursor: pointer;
+    margin: 5px;
+    border-width: 0;
+
+}
