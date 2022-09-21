@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import './Footer.css';
 //importar imagen
-import imgPokemon from '../../Assets/img/logoPokemon.png';
+import imgPokemon from '../../Assets/img/logoPokemon.png'
 import iconLinkln from '../../Assets/icon/iconLinkedin.svg'
 import iconWhatsapp from '../../Assets/icon/iconWhatsapp.svg'
 import iconYoutube from '../../Assets/icon/iconYoutube.svg'

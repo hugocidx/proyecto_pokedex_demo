@@ -21,7 +21,7 @@ const PokemonList = ({ }) => {
     }
     //ejemplo de funcion asyncrona
     const getPokemonDetail = async (url) => {
-        console.log(`entre pokemon detail ${url}`);
+        console.log(`pokemon detail ${url}`);
         const pokemon = await getDetailPokemon(url);
         console.log("pokemon", pokemon);
         setPokemonDetailSelected(pokemon)
@@ -42,18 +42,47 @@ const PokemonList = ({ }) => {
                     ListNext != null ? <button onClick={() => getPokemonData(ListNext)} >Siguiente </button> : <></>
                 }
             </div>
-            <div>
-            <div className='description'>
-                {PokemonDetailSelected != null ? (<h1 className='detail'>
-                    Base experience:  {PokemonDetailSelected.base_experience}
-                </h1>) : <></>
-                }
-            </div>
+            <div className='container-pokemons'>
+                <div className='description'>
+                    {PokemonDetailSelected != null ? (<h1 className='detail'>
+                        <div className='body' >
+                            <div className="card">
+                                <div className="image">
+                                    <img src={PokemonDetailSelected.sprites.other.dream_world.front_default} />
+                                </div>
+                                <div className="details">
+                                    <div className="center">
+                                        <h1>  Nombre: {PokemonDetailSelected.name}  </h1>
+                                        <ul>
+                                            <p>
+                                                Pokemon #: {PokemonDetailSelected.order}
+                                            </p>
+                                            <p>
+                                                Peso: {PokemonDetailSelected.weight} lb
+                                            </p>
+                                            <p>
+                                                Altura: {PokemonDetailSelected.height} ft
+                                            </p>
+                                            <p>
+                                                Experiencia Base: {PokemonDetailSelected.base_experience}
+                                            </p>
+                                            {/* movimiento: {PokemonDetailSelected.moves.0.moves} */}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {/* <li>
+                                movimiento: {PokemonDetailSelected.abilities.move.name}
+                            </li>  */}
+                    </h1>) : <></>
+                    }
+                </div>
                 {
                     List.map((Pokemon, index) => {
                         return (
                             <div className="containerPokemon" onClick={() => getPokemonDetail(Pokemon.url)} key={index} >
-                                <button className='buttonPokemon' >{Pokemon.name} </button>
+                                <button className='buttonPokemon' >{Pokemon.name}</button>
                             </div>
                         )
                     })
