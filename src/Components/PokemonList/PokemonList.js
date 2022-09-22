@@ -35,6 +35,14 @@ const PokemonList = ({ }) => {
     return (
         <div className="App">
             <div className='selector'>
+            {/* input para buscar pokemon */}
+                <babel for="pokemonName">Nombre Pokemon: </babel>
+                <input type="text" id="pokemonName" />
+                <button type="button" onclick="getValueInput()">
+                    Buscar Pokemon!!
+                </button>
+                <p id="valueInput"></p>
+            {/* scroll de pokemon */}
                 {
                     ListPreview != null ? <button onClick={() => getPokemonData(ListPreview)} >Anterior </button> : <></>
                 }

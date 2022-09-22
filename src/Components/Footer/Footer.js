@@ -14,18 +14,15 @@ class Footer extends Component {
                 <p>
                     En este sitio web podras encontrar informacion sobre tus pokemones favoritos
                 </p>
-
                 <div className="icons">
                     <a href="https://www.linkedin.com/in/hugo-cid-6442311a3/" target="_blank" >
                         <button className="icon1" >
                             <img src={iconLinkln} alt="iconLinkln" />
                         </button> </a>
-
                     <a href="https://wa.me/56967337274" target="_blank" >
                         <button className="icon2" type="none" >
                             <img src={iconWhatsapp} alt="iconWhatsapp" />
                         </button> </a>
-
                     <a href="https://www.youtube.com/channel/UCp6YQGlRtUGKGJPxX-en6mw" target="_blank" >
                         <button className="icon3" type="none" >
                             <img src={iconYoutube} alt="iconYoutube" />
