@@ -1,48 +1,59 @@
 import React, { useEffect, useState } from 'react';
-import './PokemonList.css';
+import './PokemonList.scss';
 import { getListPokemon, getDetailPokemon } from '../../Api/Pokemon';
 
 const PokemonList = ({ }) => {
-    const [List, setList] = useState([])
-
+    //arreglo que devuelve pokemon
+    const [ListPokemonDetail, setPokemonDetail] = useState([])
     const [ListNext, setListNext] = useState(null)
-
     const [ListPreview, setListPreview] = useState(null)
     //variable de estado que guarda los detalles del pokemon
-    const [PokemonDetailSelected, setPokemonDetailSelected] = useState(null)
-
     const getPokemonData = async (url) => {
-        console.log("entre pokemon data");
+        setPokemonDetail(null)
+        setPokemonDetail(ListPokemonDetail.length =0)
         const pokemons = await getListPokemon(url);
-        console.log("pokemon", pokemons);
-        setList(pokemons.results)
         setListNext(pokemons.next)
         setListPreview(pokemons.previous)
+        //crear lista vacia,recorrer lista de pokemon,traer getPokemonDetail, resultado agregar a lista inicial
+        const ListaAuxiliarPokemonDetail = []
+        pokemons.results.map(async (pokemon) => {
+            const pokemonDetail = await getPokemonDetail(pokemon.url)
+            setPokemonDetail(ListPokemonDetail => ListPokemonDetail.concat(pokemonDetail))
+            // ListPokemonDetail.push(pokemonDetail)
+        })
+        setPokemonDetail(ListPokemonDetail.concat(ListaAuxiliarPokemonDetail))
+        // setPokemonDetail(ListaAuxiliarPokemonDetail)
     }
-    //ejemplo de funcion asyncrona
-    const getPokemonDetail = async (url) => {
-        console.log(`pokemon detail ${url}`);
-        const pokemon = await getDetailPokemon(url);
-        console.log("pokemon", pokemon);
-        setPokemonDetailSelected(pokemon)
-    }
-
     useEffect(() => {
-        // setList([bolbasaur, charmander, squartle])
         getPokemonData(null)
     }, [])
-
+    //ejemplo de funcion asyncrona
+    const getPokemonDetail = async (url) => {
+        const pokemon = await getDetailPokemon(url);
+        return pokemon
+    }
+    //buscar pokemon por nombre
+    const getPokemon = async (name) => {
+        const url = `https://pokeapi.co/api/v2/pokemon/${name}`
+        const pokemonDetail = await getPokemonDetail(url);
+        console.log("pokemon", pokemonDetail);
+        setPokemonDetail(ListPokemonDetail.length =0)
+        setPokemonDetail(ListPokemonDetail.concat(pokemonDetail))
+    }
     return (
         <div className="App">
             <div className='selector'>
-            {/* input para buscar pokemon */}
-                <babel for="pokemonName">Nombre Pokemon: </babel>
-                <input type="text" id="pokemonName" />
-                <button type="button" onclick="getValueInput()">
-                    Buscar Pokemon!!
-                </button>
+                {/* input buscador de pokemon */}
+                <div class="container">
+                    <div class="demo-flex-spacer"></div>
+                    <div class="webflow-style-input">
+                        <input class="" type="email" placeholder="ingresa pokemon"></input>
+                        <button type="" onClick={() => getPokemon("onix") }> buscar<i class="icon ion-android-arrow-forward"></i></button>
+                    </div>
+                </div>
+                
                 <p id="valueInput"></p>
-            {/* scroll de pokemon */}
+                {/* listado de pokemon */}
                 {
                     ListPreview != null ? <button onClick={() => getPokemonData(ListPreview)} >Anterior </button> : <></>
                 }
@@ -50,54 +61,67 @@ const PokemonList = ({ }) => {
                     ListNext != null ? <button onClick={() => getPokemonData(ListNext)} >Siguiente </button> : <></>
                 }
             </div>
-            <div className='container-pokemons'>
-                <div className='description'>
-                    {PokemonDetailSelected != null ? (<h1 className='detail'>
-                        <div className='body' >
-                            <div className="card">
-                                <div className="image">
-                                    <img src={PokemonDetailSelected.sprites.other.dream_world.front_default} />
-                                </div>
-                                <div className="details">
-                                    <div className="center">
-                                        <h1>  Nombre: {PokemonDetailSelected.name}  </h1>
-                                        <ul>
-                                            <p>
-                                                Pokemon #: {PokemonDetailSelected.order}
-                                            </p>
-                                            <p>
-                                                Peso: {PokemonDetailSelected.weight} lb
-                                            </p>
-                                            <p>
-                                                Altura: {PokemonDetailSelected.height} ft
-                                            </p>
-                                            <p>
-                                                Experiencia Base: {PokemonDetailSelected.base_experience}
-                                            </p>
-                                            {/* movimiento: {PokemonDetailSelected.moves.0.moves} */}
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {/* <li>
-                                movimiento: {PokemonDetailSelected.abilities.move.name}
-                            </li>  */}
-                    </h1>) : <></>
-                    }
-                </div>
+            <h1>{ListPokemonDetail.length > 0 ? ListPokemonDetail.lenght : "no hay nada"} </h1>
+            <div className='content-cards'>
                 {
-                    List.map((Pokemon, index) => {
-                        return (
-                            <div className="containerPokemon" onClick={() => getPokemonDetail(Pokemon.url)} key={index} >
-                                <button className='buttonPokemon' >{Pokemon.name}</button>
-                            </div>
-                        )
-                    })
+                    ListPokemonDetail.length > 0 ? ListPokemonDetail.map((pokemonDetail, index) => {
+                        return <div key={index} >
+                            <div className='cards'>
+                                <figure className="card card--normal">
+                                    <div className="card__image-container">
+                                    <img src={pokemonDetail.sprites.other.dream_world.front_default} />
+                                    </div>
+                                    <figcaption className="card__caption">
+                                        {pokemonDetail != null ? (<div className='detail'>
+                                            <h1 className="card__name">{pokemonDetail.name}</h1>
+                                            <h3 className="card__type">
+                                                normal
+                                            </h3>
+                                            <table className="card__stats">
+                                                <tbody>
+                                                    <tr>
+                                                        <th>ID:</th>
+                                                        <td>{pokemonDetail.order}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Peso:</th>
+                                                        <td>{pokemonDetail.weight} lb</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Altura:</th>
+                                                        <td>{pokemonDetail.height} ft</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Experiencia Base:</th>
+                                                        <td>{pokemonDetail.base_experience}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>movimiento:</th>
+                                                        <td>{pokemonDetail.moves[0].moves}</td> 
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>) : <></>
+                                        }
+                                        <div className="card__abilities">
+                                            <h4 className="card__ability">
+                                                <span className="card__label">Habilidad</span>
+                                                Run Away
+                                            </h4>
+                                            <h4 className="card__ability">
+                                                <span className="card__label">Habilidad oculta</span>
+                                                Anticipation
+                                            </h4>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </div >
+                        </div>
+                    }) : <></>
                 }
             </div>
-        </div>
+        </div >
     );
 }
-
 export default PokemonList;
+

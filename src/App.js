@@ -1,4 +1,4 @@
-import './App.css';
+import './Styles/App.scss';
 import Home from './Screens/Home/Home';
 
 

@@ -16,6 +16,7 @@ html {
 .App-logo::before {
     content: '';
     position: absolute;
+    display: block;
     height: 8px;
     width: 100px;
     background: black;
