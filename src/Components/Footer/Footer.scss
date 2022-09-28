@@ -3,6 +3,7 @@ div.footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    height: 200px;
 
 }
 
@@ -12,28 +13,37 @@ p {
     align-self: center;
 }
 
-div.icons {
-    display: flex;
-    align-items: center;
+button.icon1 {
+    background-color: darkblue;
+    border: none;
+}
+
+button.icon2 {
+    background-color: darkblue;
+    border: none;
+}
+
+button.icon3 {
+    background-color: darkblue;
+    border: none;
+}
+
+.icons {
+    align-self: center;
+    width: 350px;
 }
 
 .icon1 {
-    background-color: darkblue;
     cursor: pointer;
-    margin: 5px;
-    border-width: 0;
+    margin: 15px;
 }
 
 .icon2 {
-    background-color: darkblue;
     cursor: pointer;
-    margin: 5px;
-    border-width: 0;
+    margin: 15px;
 }
 
 .icon3 {
-    background-color: darkblue;
     cursor: pointer;
-    margin: 5px;
-    border-width: 0;
+    margin: 15px;
 }

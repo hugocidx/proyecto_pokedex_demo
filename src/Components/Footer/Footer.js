@@ -23,10 +23,10 @@ class Footer extends Component {
                     <a href="https://wa.me/56967337274" target="_blank" >
                         <button className="icon2" type="none" >
                             <img src={iconWhatsapp} alt="iconWhatsapp" />
-                        </button> </a>
+                        </button> </a>                        
                     <a href="https://www.youtube.com/channel/UCp6YQGlRtUGKGJPxX-en6mw" target="_blank" >
                         <button className="icon3" type="none" >
-                            <img src={iconYoutube} alt="iconYoutube" />
+                            <img src={iconYoutube} alt="iconYoutube" />                                                
                         </button> </a>
                 </div>
             </div>

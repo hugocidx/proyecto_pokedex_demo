@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import './PokemonList.scss';
+// import InputPokemon from '../Input/Input.js'
 import { getListPokemon, getDetailPokemon } from '../../Api/Pokemon';
 
 const PokemonList = ({ }) => {
@@ -40,25 +41,19 @@ const PokemonList = ({ }) => {
         setPokemonDetail(ListPokemonDetail.length =0)
         setPokemonDetail(ListPokemonDetail.concat(pokemonDetail))
     }
+    //llamado a input desde componente
+    // <InputPokemon></InputPokemon>
+
     return (
         <div className="App">
-            <div className='selector'>
-                {/* input buscador de pokemon */}
-                <div class="container">
-                    <div class="demo-flex-spacer"></div>
-                    <div class="webflow-style-input">
-                        <input class="" type="email" placeholder="ingresa pokemon"></input>
-                        <button type="" onClick={() => getPokemon("onix") }> buscar<i class="icon ion-android-arrow-forward"></i></button>
-                    </div>
-                </div>
-                
+            <div className='selector'>    
                 <p id="valueInput"></p>
                 {/* listado de pokemon */}
                 {
-                    ListPreview != null ? <button onClick={() => getPokemonData(ListPreview)} >Anterior </button> : <></>
+                    ListPreview != null ? <button className='ButtonPreview' onClick={() => getPokemonData(ListPreview)} >Anterior </button> : <></>
                 }
                 {
-                    ListNext != null ? <button onClick={() => getPokemonData(ListNext)} >Siguiente </button> : <></>
+                    ListNext != null ? <button className='ButtonNext' onClick={() => getPokemonData(ListNext)} >Siguiente </button> : <></>
                 }
             </div>
             <h1>{ListPokemonDetail.length > 0 ? ListPokemonDetail.lenght : "no hay nada"} </h1>
@@ -69,7 +64,7 @@ const PokemonList = ({ }) => {
                             <div className='cards'>
                                 <figure className="card card--normal">
                                     <div className="card__image-container">
-                                    <img src={pokemonDetail.sprites.other.dream_world.front_default} />
+                                    <img className='imgPokemon' src={pokemonDetail.sprites.other.dream_world.front_default} />
                                     </div>
                                     <figcaption className="card__caption">
                                         {pokemonDetail != null ? (<div className='detail'>
