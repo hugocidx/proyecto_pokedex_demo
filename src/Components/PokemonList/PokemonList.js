@@ -70,7 +70,7 @@ const PokemonList = ({ }) => {
                                         {pokemonDetail != null ? (<div className='detail'>
                                             <h1 className="card__name">{pokemonDetail.name}</h1>
                                             <h3 className="card__type">
-                                                normal
+                                                normal {pokemonDetail.type}
                                             </h3>
                                             <table className="card__stats">
                                                 <tbody>
