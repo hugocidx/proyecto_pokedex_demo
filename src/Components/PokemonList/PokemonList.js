@@ -35,23 +35,21 @@ const PokemonList = ({ }) => {
         return pokemon
     }
     //buscar pokemon por nombre usando react hooks forms
-     const getPokemon = async (name) => {
-         const url = `https://pokeapi.co/api/v2/pokemon/${name}`
-         const pokemonDetail = await getPokemonDetail(url);
-         console.log("pokemon", pokemonDetail);
-         setPokemonDetail(ListPokemonDetail.length = 0)
-         setPokemonDetail(ListPokemonDetail.concat(pokemonDetail))
-     }
-     return (
-         <div className="App">
-            {/* llamado a input desde componente */}
-            <div className="input">
+    const getPokemon = async (name) => {
+        const url = `https://pokeapi.co/api/v2/pokemon/${name}`
+        const pokemonDetail = await getPokemonDetail(url);
+        console.log("pokemon", pokemonDetail);
+        setPokemonDetail(ListPokemonDetail.length = 0)
+        setPokemonDetail(ListPokemonDetail.concat(pokemonDetail))
+    }
+    return (
+        <div className="App">
+            {/* llamado a input desde componente */}           
                 <div className="demo-flex-spacer"></div>
                 <div className="webflow-style-input">
-                    <input className="" type="" placeholder="ingresa pokemon"></input>
-                    <button type="submit" onClick={() => getPokemon("onix")}> <i className="icon ion-android-arrow-forward"></i></button>
-                </div>
-            </div>
+                    <input className="submit" placeholder="ingresa pokemon"></input>
+                    <button onClick={() => getPokemon("mewtwo")}> <i class='fas fa-angle-double-right'></i></button>
+                </div>           
             
             <div className='selector'>
                 {/* listado de pokemon */}

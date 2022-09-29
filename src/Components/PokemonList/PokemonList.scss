@@ -313,16 +313,13 @@ h1, h2, h3, h4, h5 {
   background: #4f4f4f;
 }
 
+
+
 // for demo
-.container-input {
-  display: flex;
-  flex-direction: column;
-  //justify-content: center;
-  height: 100vh;
-  max-width: 1600px;
-  padding: 0 15px;
-  margin: 0 auto;
+.demo-flex-spacer {
+  flex-grow: 1;
 }
+
 
 // colors
 $input-background: rgba(57, 63, 84, 0.8);
@@ -349,9 +346,9 @@ $input-text-active: #BFD2FF;
     position: absolute;
     left: 32px;
     right: 49px;
-    bottom: 0px;
+    bottom: 10px;
     z-index: 999;
-    height: 28px;
+    height: 18px;
     border-bottom-left-radius: 37px;
     border-bottom-right-radius: 37px;
     background-position: 0% 0%;
@@ -362,6 +359,7 @@ $input-text-active: #BFD2FF;
 }
 
 .webflow-style-input input {
+  border-right-width: 0px;
   flex-grow: 1;
   background: linear-gradient(to right, #2f3add, #4a00e0);
   font-size: 1.8rem;
@@ -382,3 +380,5 @@ $input-text-active: #BFD2FF;
     color: $input-text-active;
   }
 }
+
+
