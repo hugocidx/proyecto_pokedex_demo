@@ -27,7 +27,7 @@ h1.detail {
 
 .ButtonPreview {
     cursor: pointer;
-    background-image: linear-gradient(to right, #8e2de2, #4a00e0);
+    background: linear-gradient(110deg, #b4841c 0%, #3A1C71 100%);
     margin: 5em;
     padding: 10px 20px;
     border-width: 10px;
@@ -36,7 +36,7 @@ h1.detail {
 
 .ButtonNext {
   cursor: pointer;
-  background-image: linear-gradient(to right, #8e2de2, #4a00e0);
+  background: linear-gradient(110deg, #b4841c 0%, #3A1C71 100%);
   margin: 5em;
   padding: 10px 20px;
   border-width: 10px;
@@ -131,7 +131,7 @@ h1, h2, h3, h4, h5 {
     th {
       font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
       text-align: right;
-      font-weight: 300;
+      font-weight: bold;
     }
     width: 100%;
     
@@ -239,5 +239,146 @@ h1, h2, h3, h4, h5 {
   
 }
 
+//color por elemento
+.bug {
+  background: #aedf78;
+}
 
+.water {
+  background: #43ccff;
+}
 
+.grass {
+  background: #00ca91;
+}
+
+.fire {
+  background: #e95c4d;
+}
+
+.normal {
+  background: #a5a5a5;
+}
+
+.poison {
+  background: #611380;
+}
+
+.electric {
+  background: #f9be00;
+}
+.ground {
+  background: #bfac21;
+}
+
+.fairy {
+  background: #f87ea7;
+}
+
+.fighting {
+  background: #e81319;
+}
+.psychic {
+  background: #8a0532;
+}
+
+.ghost {
+  background: #8e55a4;
+}
+.rock {
+  background: #776a3e;
+}
+.ice {
+  background: #66d1e5;
+}
+.flying {
+  background: #5eb9b2;
+}
+.dark {
+  background: #2d221c;
+}
+
+.dragon {
+  background: #29036a;
+}
+
+.steel {
+  background: #7b8e8a;
+}
+.unknown {
+  background: #454545;
+}
+
+.shadow {
+  background: #4f4f4f;
+}
+
+// for demo
+.container-input {
+  display: flex;
+  flex-direction: column;
+  //justify-content: center;
+  height: 100vh;
+  max-width: 1600px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+// colors
+$input-background: rgba(57, 63, 84, 0.8);
+$input-text-inactive: #7881A1;
+$input-text-active: #BFD2FF;
+
+// gradient animation
+@keyframes gradient { 
+  0%{background-position:0 0}
+  100%{background-position:100% 0}
+}
+
+.webflow-style-input {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: 2px;
+  padding: 1.4rem 2rem 1.6rem;
+  &:after {
+    content: "";
+    position: absolute;
+    left: 32px;
+    right: 49px;
+    bottom: 0px;
+    z-index: 999;
+    height: 28px;
+    border-bottom-left-radius: 37px;
+    border-bottom-right-radius: 37px;
+    background-position: 0% 0%;
+    background: linear-gradient(to right, #B294FF, #57E6E6, #FEFFB8, #57E6E6, #B294FF, #57E6E6);
+    background-size: 500% auto;
+    animation: gradient 3s linear infinite;
+  }
+}
+
+.webflow-style-input input {
+  flex-grow: 1;
+  background: linear-gradient(to right, #2f3add, #4a00e0);
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  vertical-align: middle;
+  &::-webkit-input-placeholder {
+    color: $input-text-inactive;
+  }
+}
+
+.webflow-style-input button {
+  background: linear-gradient(to right, #8e2de2, #4a00e0);
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  vertical-align: middle;
+  transition: color .25s;
+  &:hover {
+    color: $input-text-active;
+  }
+}

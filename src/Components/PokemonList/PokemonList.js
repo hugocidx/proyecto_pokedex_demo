@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './PokemonList.scss';
 // import InputPokemon from '../Input/Input.js'
 import { getListPokemon, getDetailPokemon } from '../../Api/Pokemon';
@@ -11,7 +11,7 @@ const PokemonList = ({ }) => {
     //variable de estado que guarda los detalles del pokemon
     const getPokemonData = async (url) => {
         setPokemonDetail(null)
-        setPokemonDetail(ListPokemonDetail.length =0)
+        setPokemonDetail(ListPokemonDetail.length = 0)
         const pokemons = await getListPokemon(url);
         setListNext(pokemons.next)
         setListPreview(pokemons.previous)
@@ -26,28 +26,34 @@ const PokemonList = ({ }) => {
         // setPokemonDetail(ListaAuxiliarPokemonDetail)
     }
     useEffect(() => {
-        getPokemonData(null)
+        getPokemonData()
     }, [])
     //ejemplo de funcion asyncrona
     const getPokemonDetail = async (url) => {
         const pokemon = await getDetailPokemon(url);
+        console.log(pokemon)
         return pokemon
     }
-    //buscar pokemon por nombre
-    const getPokemon = async (name) => {
-        const url = `https://pokeapi.co/api/v2/pokemon/${name}`
-        const pokemonDetail = await getPokemonDetail(url);
-        console.log("pokemon", pokemonDetail);
-        setPokemonDetail(ListPokemonDetail.length =0)
-        setPokemonDetail(ListPokemonDetail.concat(pokemonDetail))
-    }
-    //llamado a input desde componente
-    // <InputPokemon></InputPokemon>
-
-    return (
-        <div className="App">
-            <div className='selector'>    
-                <p id="valueInput"></p>
+    //buscar pokemon por nombre usando react hooks forms
+     const getPokemon = async (name) => {
+         const url = `https://pokeapi.co/api/v2/pokemon/${name}`
+         const pokemonDetail = await getPokemonDetail(url);
+         console.log("pokemon", pokemonDetail);
+         setPokemonDetail(ListPokemonDetail.length = 0)
+         setPokemonDetail(ListPokemonDetail.concat(pokemonDetail))
+     }
+     return (
+         <div className="App">
+            {/* llamado a input desde componente */}
+            <div className="input">
+                <div className="demo-flex-spacer"></div>
+                <div className="webflow-style-input">
+                    <input className="" type="" placeholder="ingresa pokemon"></input>
+                    <button type="submit" onClick={() => getPokemon("onix")}> <i className="icon ion-android-arrow-forward"></i></button>
+                </div>
+            </div>
+            
+            <div className='selector'>
                 {/* listado de pokemon */}
                 {
                     ListPreview != null ? <button className='ButtonPreview' onClick={() => getPokemonData(ListPreview)} >Anterior </button> : <></>
@@ -56,21 +62,22 @@ const PokemonList = ({ }) => {
                     ListNext != null ? <button className='ButtonNext' onClick={() => getPokemonData(ListNext)} >Siguiente </button> : <></>
                 }
             </div>
-            <h1>{ListPokemonDetail.length > 0 ? ListPokemonDetail.lenght : "no hay nada"} </h1>
+            <h1>{ListPokemonDetail.length > 0 ? ListPokemonDetail.lenght : "no hay nada o cargando"} </h1>
             <div className='content-cards'>
                 {
                     ListPokemonDetail.length > 0 ? ListPokemonDetail.map((pokemonDetail, index) => {
                         return <div key={index} >
-                            <div className='cards'>
-                                <figure className="card card--normal">
-                                    <div className="card__image-container">
-                                    <img className='imgPokemon' src={pokemonDetail.sprites.other.dream_world.front_default} />
+                            <div className='cards'>                                
+                                <figure className="card card--normal" src={pokemonDetail.types[0].type.name} >
+                                    <div className="card__image-container" >
+                                        <img className='imgPokemon' src={pokemonDetail.sprites.other.dream_world.front_default} alt="imagen de pokemon" />
                                     </div>
                                     <figcaption className="card__caption">
                                         {pokemonDetail != null ? (<div className='detail'>
-                                            <h1 className="card__name">{pokemonDetail.name}</h1>
+                                            <h1 className="card__name">{pokemonDetail.name}
+                                            </h1>
                                             <h3 className="card__type">
-                                                normal {pokemonDetail.type}
+                                                {pokemonDetail.types[0].type.name}
                                             </h3>
                                             <table className="card__stats">
                                                 <tbody>
@@ -92,7 +99,7 @@ const PokemonList = ({ }) => {
                                                     </tr>
                                                     <tr>
                                                         <th>movimiento:</th>
-                                                        <td>{pokemonDetail.moves[0].moves}</td> 
+                                                        <td>{pokemonDetail.moves[0].move.name}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -101,11 +108,11 @@ const PokemonList = ({ }) => {
                                         <div className="card__abilities">
                                             <h4 className="card__ability">
                                                 <span className="card__label">Habilidad</span>
-                                                Run Away
+                                                {pokemonDetail.moves[1].move.name}
                                             </h4>
                                             <h4 className="card__ability">
                                                 <span className="card__label">Habilidad oculta</span>
-                                                Anticipation
+                                                {pokemonDetail.moves[2].move.name}
                                             </h4>
                                         </div>
                                     </figcaption>
