@@ -314,13 +314,10 @@ h1, h2, h3, h4, h5 {
 }
 
 
-
-// for demo
+//Input
 .demo-flex-spacer {
   flex-grow: 1;
 }
-
-
 // colors
 $input-background: rgba(57, 63, 84, 0.8);
 $input-text-inactive: #7881A1;
@@ -382,3 +379,57 @@ $input-text-active: #BFD2FF;
 }
 
 
+
+
+/* Pokeball draw code */
+// Size variable to keep all proportional if manipulate it
+.u-bounce {
+  animation: bounce 1000ms infinite;
+  //animation-timing-function: cubic-bezier(0,1.28,0,1.27);
+}
+$size: 250px;
+.o-pokeball {
+  width: $size;
+  height: $size;
+  border-radius: $size;
+  border: solid ($size/25) black;
+  position: relative;    
+  background: linear-gradient(to bottom, #EEEEEE 0%,#FFFFFF 100%);;
+  margin: 10px auto;
+  
+  &:before,
+  &:after{
+    content: "";
+    display: block;
+  }
+  
+  &,
+  &:before,
+  &:after{
+    transition: all 600ms cubic-bezier(.67,.4,.36,.75);
+  }
+  
+  &:before {
+    width: $size;
+    height: ($size/2) -($size/25/2);
+    border-bottom: solid ($size/25) black;
+    border-radius: ($size/2) ($size/2) 0 0;
+    background: linear-gradient(to bottom, #d10000 0%,#ff0000 50%);
+  }
+  
+  &:after {
+    content: "";
+    width: $size/5;
+    height: $size/5;
+    background: linear-gradient(to bottom, #fff 0%,#ccc 100%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    box-shadow: 0 0 0 ($size/50) black,
+                0 0 0 ($size/25) #ddd,
+                0 0 0 ($size/14) black,
+                0 0 ($size/10) ($size/17) rgba(0,0,0,0.4);
+  }
+}

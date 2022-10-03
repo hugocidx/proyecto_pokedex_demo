@@ -1,28 +1,6 @@
-h1.demo {
-  text-align: center;
-  font-size: 2.4rem;
-  font-weight: normal;
-  margin-bottom: 1rem;
-  color: #f5f6ff;
-}
-a.demo {
-  text-align: center;
-  font-size: 1.6rem;
-  font-weight: normal;
-  color: rgba(202, 205, 239, 0.8);
-  margin-bottom: 3rem;
-}
+// for demo
 .demo-flex-spacer {
   flex-grow: 1;
-}
-.input {
-  display: flex;
-  flex-direction: column;
-  //justify-content: center;
-  height: 100vh;
-  max-width: 1600px;
-  padding: 0 15px;
-  margin: 0 auto;
 }
 
 // colors
@@ -45,17 +23,16 @@ $input-text-active: #BFD2FF;
   margin: 0 auto;
   border-radius: 2px;
   padding: 1.4rem 2rem 1.6rem;
-  background: $input-background;
   &:after {
     content: "";
     position: absolute;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
+    left: 32px;
+    right: 49px;
+    bottom: 10px;
     z-index: 999;
-    height: 2px;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
+    height: 18px;
+    border-bottom-left-radius: 37px;
+    border-bottom-right-radius: 37px;
     background-position: 0% 0%;
     background: linear-gradient(to right, #B294FF, #57E6E6, #FEFFB8, #57E6E6, #B294FF, #57E6E6);
     background-size: 500% auto;
@@ -64,8 +41,9 @@ $input-text-active: #BFD2FF;
 }
 
 .webflow-style-input input {
+  border-right-width: 0px;
   flex-grow: 1;
-  color: $input-text-active;
+  background: linear-gradient(to right, #2f3add, #4a00e0);
   font-size: 1.8rem;
   line-height: 2.4rem;
   vertical-align: middle;
@@ -75,7 +53,7 @@ $input-text-active: #BFD2FF;
 }
 
 .webflow-style-input button {
-  color:  $input-text-inactive;
+  background: linear-gradient(to right, #8e2de2, #4a00e0);
   font-size: 2.4rem;
   line-height: 2.4rem;
   vertical-align: middle;
@@ -84,3 +62,4 @@ $input-text-active: #BFD2FF;
     color: $input-text-active;
   }
 }
+
