@@ -52,11 +52,18 @@ const Home = ({}) => {
   };
   return (
     <div>
-      <Header> </Header>
+      <Header />
       <Input onSubmitInput={getPokemon} />
-      <PokemonList> </PokemonList>
+      {
+      /**
+     * Botonera
+     * sigunte
+     * anterior
+     */
+      }
+      <PokemonList listaProperty={ ListPokemonDetail }/>
       {/* <Card> </Card> */}
-      <Footer> </Footer>
+      <Footer />
     </div>
   );
 };
