@@ -1,12 +1,31 @@
+// colors
+$input-background: rgba(57, 63, 84, 0.8);
+$input-text-inactive: #7881A1;
+$input-text-active: #BFD2FF;
 // for demo
 .demo-flex-spacer {
   flex-grow: 1;
 }
 
-// colors
-$input-background: rgba(57, 63, 84, 0.8);
-$input-text-inactive: #7881A1;
-$input-text-active: #BFD2FF;
+form{
+  display: flex;
+  align-items: center;
+}
+
+.inputButton{
+  display: inline-block;
+}
+.buttonBuscar{
+  cursor: pointer;
+  background: linear-gradient(to right, #8e2de2, #4a00e0);
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  vertical-align: middle;
+  transition: color .25s;
+  &:hover {
+    color: $input-text-active;
+  }
+}
 
 // gradient animation
 @keyframes gradient { 
@@ -27,7 +46,7 @@ $input-text-active: #BFD2FF;
     content: "";
     position: absolute;
     left: 32px;
-    right: 49px;
+    right: 32px;
     bottom: 10px;
     z-index: 999;
     height: 18px;
@@ -53,7 +72,7 @@ $input-text-active: #BFD2FF;
 }
 
 .webflow-style-input button {
-  background: linear-gradient(to right, #8e2de2, #4a00e0);
+  background: linear-gradient(110deg to right, #8e2de2, #4a00e0);
   font-size: 2.4rem;
   line-height: 2.4rem;
   vertical-align: middle;

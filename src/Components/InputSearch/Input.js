@@ -2,34 +2,45 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import "./Input.scss";
 
-const Input = ({ InputName, onSubmitInput }) => {
+const Input = ({ onSubmitInput, InputName }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+  const onSubmit = (values) => {
+    console.log(values);
+    onSubmitInput(values.PokemonSearch);
+  };
+
   return (
-    <form onSubmit={handleSubmit(onSubmitInput)}>
-      <div>
+    <div className="inputButton">
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="demo-flex-spacer"></div>
         <div className="webflow-style-input">
           <input
             className="submit"
-            placeholder="ingresa pokemon"
-            {...register("PokemonSearch", { required: true, maxLength: 5 })}
-          />
-          <input type="submit" />
+            placeholder="ingresa nombre de pokemon"
+            {...register("PokemonSearch", { required: true, maxLength: 10 })}
+          ></input>
+          {errors.PokemonSearch?.type === "maxLength" && (
+            <p role="alert">Maximo 10 caracteres</p>
+          )}{" "}
+          {errors.PokemonSearch?.type === "required" && (
+            <p role="alert">Nombre de pokemon requerido</p>
+          )}{" "}
         </div>
-      </div>
-      {console.log(errors.PokemonSearch)}
-      {errors.PokemonSearch?.type === "required" && (
-        <p role="alert">First name is required</p>
-      )}{" "}
-      {errors.PokemonSearch?.type === "maxLength" && (
-        <p role="alert">solo 5 caracteres</p>
-      )}{" "}
-    </form>
+        <button
+          type="submit"
+          className="buttonBuscar"
+          onClick={() => handleSubmit(onSubmit)}
+        >
+          {" "}
+          Buscar{" "}
+        </button>
+      </form>
+    </div>
   );
 };
 

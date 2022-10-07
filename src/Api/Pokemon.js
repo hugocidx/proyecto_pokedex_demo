@@ -12,15 +12,12 @@ const getListPokemon = async (url) => {
 };
 
 const getDetailPokemon = async (url) => {
-  // console.log(`esta es la funcion detail ${url}`);
   //esta funcion recibe la url completa del pokemon sin modificar nada en la variable url
   let result = null;
 
   await axios.get(url).then((res) => {
-    //console.log(res.data)
     result = res.data;
   });
-  //<button type="">volver a lista pokemon</button>
   return result;
 };
 
