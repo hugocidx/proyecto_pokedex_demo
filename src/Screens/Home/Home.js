@@ -3,6 +3,7 @@ import Header from "../../Components/Header/Header";
 import PokemonList from "../../Components/PokemonList/PokemonList";
 import Footer from "../../Components/Footer/Footer";
 import Input from "../../Components/InputSearch/Input";
+import "./Home.scss";
 import { getListPokemon, getDetailPokemon } from "../../Api/Pokemon";
 
 const Home = ({}) => {
@@ -61,12 +62,22 @@ const Home = ({}) => {
     <div>
       <Header />
       <Input onSubmitInput={getPokemon} />
-      <button onClick={() => getPokemonData(ListNext)}>Siguente</button>
-      {/**
-       * Botonera
-       * sigunte
-       * anterior
-       */}
+      <div className="botonera">
+        {/**
+         * Botonera
+         * sigunte
+         * anterior
+         */}
+        <button
+          className="ButtonPreview"
+          onClick={() => getPokemonData(ListPreview)}
+        >
+          Anterior
+        </button>
+        <button className="ButtonNext" onClick={() => getPokemonData(ListNext)}>
+          Siguente
+        </button>
+      </div>
       <PokemonList listaProperty={ListPokemonDetail} />
       {/* <Card> </Card> */}
       <Footer />
