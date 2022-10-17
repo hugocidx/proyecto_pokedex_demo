@@ -1,4 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300,700');
+.content-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300,700");
 body {
   font-family: "Open Sans", Helvetica, sans-serif;
   text-align: center;
@@ -7,14 +14,17 @@ body {
 .imgPokemon {
   width: 210px;
   height: 210px;
-  z-index: 3;
-  /* max-height: 150px; */
+  z-index: 5;
   display: inline-block;
   position: absolute;
   margin-top: 15px;
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   margin: 0;
   font-weight: 400;
 }
@@ -23,10 +33,91 @@ h1, h2, h3, h4, h5 {
   display: inline-block;
   width: 300px;
   padding: 1em;
-  border-radius: 15px;  
+  border-radius: 15px;
   margin: 10px;
   background: #ddd;
   text-align: left;
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/13471/sparkles.gif");
+  background-position: center;
+  background-size: 180%;
+  animation: holoSparkle 20s ease infinite;
+  filter: brightness(1) contrast(1);
+  opacity: 1;
+
+  @keyframes holoSparkle {
+    0%,
+    100% {
+      opacity: 0.75;
+      background-position: 50% 50%;
+      filter: brightness(1.2) contrast(1.25);
+    }
+    5%,
+    8% {
+      opacity: 1;
+      background-position: 40% 40%;
+      filter: brightness(0.8) contrast(1.2);
+    }
+    13%,
+    16% {
+      opacity: 0.5;
+      background-position: 50% 50%;
+      filter: brightness(1.2) contrast(0.8);
+    }
+    35%,
+    38% {
+      opacity: 1;
+      background-position: 60% 60%;
+      filter: brightness(1) contrast(1);
+    }
+    55% {
+      opacity: 0.33;
+      background-position: 45% 45%;
+      filter: brightness(1.2) contrast(1.25);
+    }
+  }
+  @keyframes holoGradient {
+    0%,
+    100% {
+      background-position: 50% 50%;
+    }
+    5%,
+    9% {
+      background-position: 100% 100%;
+    }
+    13%,
+    17% {
+      background-position: 0% 0%;
+    }
+    35%,
+    39% {
+      background-position: 100% 100%;
+    }
+    55% {
+      background-position: 0% 0%;
+    }
+  }
+
+  @keyframes holoCard {
+    0%,
+    100% {
+      transform: rotateZ(0deg) rotateX(0deg) rotateY(0deg);
+    }
+    5%,
+    8% {
+      transform: rotateZ(0deg) rotateX(6deg) rotateY(-20deg);
+    }
+    13%,
+    16% {
+      transform: rotateZ(0deg) rotateX(-9deg) rotateY(32deg);
+    }
+    35%,
+    38% {
+      transform: rotateZ(3deg) rotateX(12deg) rotateY(20deg);
+    }
+    55% {
+      transform: rotateZ(-3deg) rotateX(-12deg) rotateY(-27deg);
+    }
+  }
 
   &__caption {
     background-color: rgba(#ffffff, 0.65);
@@ -35,15 +126,20 @@ h1, h2, h3, h4, h5 {
     border-radius: 0 0 3px 3px;
   }
   &__image-container {
-    background-color: rgba(#000000, 0.7);
-   
- 
+    background-image: linear-gradient(
+      115deg,
+      transparent 0%,
+      rgb(6, 22, 3) 30%,
+      rgb(231, 233, 213) 70%,
+      transparent 100%
+    );
+    animation: holoGradient 15s ease infinite;
     border-radius: 3px 3px 0 0;
     height: 200px;
     width: 100%;
     margin-right: 100px;
   }
-  
+
   &__type {
     position: absolute;
     top: 0;
@@ -66,16 +162,15 @@ h1, h2, h3, h4, h5 {
     display: block;
     margin-bottom: 3px;
   }
-  
-  
+
   &__name {
     font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
     text-align: center;
-    font-size: 1.5em;    
+    font-size: 1.5em;
     font-weight: 700;
     letter-spacing: 0.02em;
   }
-  
+
   &__stats {
     margin: 1em 0;
     th {
@@ -84,109 +179,172 @@ h1, h2, h3, h4, h5 {
       font-weight: bold;
     }
     width: 100%;
-    
-    th, td {
+
+    th,
+    td {
       width: 50%;
       padding: 0.25em 0.5em 0;
     }
-    
   }
-  
+
   &__abilities {
     display: flex;
     justify-content: space-between;
   }
   &__ability {
+    font-weight: bold;
+    font-size: larger;
     margin-top: 1em;
     flex: 1 0;
   }
-  
+
   box-shadow: 0px 5px 20px -10px #111111;
-  
-  
   &--normal {
-    background: linear-gradient(110deg, #b4841c 0%, #3A1C71 100%);
-    box-shadow: 0px 5px 20px -10px #3A1C71;
+    background: linear-gradient(110deg, #b4841c 0%, #3a1c71 100%);
+    box-shadow: 0px 5px 20px -10px #3a1c71;
     width: 300px;
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/13471/sparkles.gif");
+    background-position: center;
+    background-size: 180%;
+    z-index: 2;
+    animation: holoSparkle 20s ease infinite;
     .card__type {
-      background-color: #C08A53;
+      background-color: #c08a53;
     }
   }
-  
+  .normal {
+    background: #a5a5a5;
+  }
+
   &--water {
-  background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%);    
+    background: linear-gradient(120deg, #1cb5e0 0%, #000851 100%);
     box-shadow: 0px 5px 20px -10px #000851;
     .card__type {
-      background-color: #1CB5E0;
+      background-color: #1cb5e0;
     }
   }
+  .water {
+    background: #43ccff;
+  }
+
   &--electric {
-    
-    background: linear-gradient(90deg, rgba(255,222,0,1) 34%, rgba(232,255,153,1) 83%);
+    background: linear-gradient(
+      90deg,
+      rgba(255, 222, 0, 1) 34%,
+      rgba(232, 255, 153, 1) 83%
+    );
     .card__type {
       background-color: #000;
     }
   }
+  .electric {
+    background: #f9be00;
+  }
   &--fire {
-    background: linear-gradient(0deg, rgba(199,24,0,1) 10%, rgba(252,194,69,1) 100%);
+    background: linear-gradient(
+      0deg,
+      rgba(199, 24, 0, 1) 10%,
+      rgba(252, 194, 69, 1) 100%
+    );
     .card__type {
-      background-color: rgba(199,24,0,1);
+      background-color: rgba(199, 24, 0, 1);
     }
   }
-  
+  .fire {
+    background: #e95c4d;
+  }
+
   &--psychic {
-    
-    background: linear-gradient(140deg, rgba(255,167,249,1) 0%, rgba(255,44,195,1) 39%, rgba(255,227,167,1) 100%);
+    background: linear-gradient(
+      140deg,
+      rgba(255, 167, 249, 1) 0%,
+      rgba(255, 44, 195, 1) 39%,
+      rgba(255, 227, 167, 1) 100%
+    );
     .card__type {
       background: #ff2cc3;
     }
   }
-  
+  .psychic {
+    background: #8a0532;
+  }
+
   &--dark {
-    background: linear-gradient(20deg, rgba(25,25,25,1) 0%, rgba(16,11,50,1) 33%, rgba(92,2,73,1) 100%);
+    background: linear-gradient(
+      20deg,
+      rgba(25, 25, 25, 1) 0%,
+      rgba(16, 11, 50, 1) 33%,
+      rgba(92, 2, 73, 1) 100%
+    );
     .card__type {
       background: #5c0249;
     }
   }
+  .dark {
+    background: #2d221c;
+  }
   &--grass {
-    background: linear-gradient(140deg, rgba(196,218,61,1) 0%, rgba(110,127,14,1) 69%, rgba(39,80,9,1) 100%);
-
+    background: linear-gradient(
+      140deg,
+      rgba(196, 218, 61, 1) 0%,
+      rgba(110, 127, 14, 1) 69%,
+      rgba(39, 80, 9, 1) 100%
+    );
     .card__type {
       background: #6e7f0e;
     }
   }
-  
+  .grass {
+    background: #00ca91;
+  }
+
   &--ice {
-    background: linear-gradient(230deg, rgba(202,234,246,1) 0%, rgba(160,234,241,1) 46%, rgba(111,184,235,1) 100%);
+    background: linear-gradient(
+      230deg,
+      rgba(202, 234, 246, 1) 0%,
+      rgba(160, 234, 241, 1) 46%,
+      rgba(111, 184, 235, 1) 100%
+    );
     .card__type {
       background: #6fb8eb;
     }
   }
-  
+  .ice {
+    background: #66d1e5;
+  }
+
   &--fairy {
-    background: linear-gradient(45deg, rgba(255,230,240,1) 0%, rgba(255,197,224,1) 34%, rgba(255,166,185,1) 71%, rgba(255,138,149,1) 100%);
-    
+    background: linear-gradient(
+      45deg,
+      rgba(255, 230, 240, 1) 0%,
+      rgba(255, 197, 224, 1) 34%,
+      rgba(255, 166, 185, 1) 71%,
+      rgba(255, 138, 149, 1) 100%
+    );
+
     .card__type {
       background: #ff8a95;
     }
   }
-  
-  position: relative;  
+  .fairy {
+    background: #f87ea7;
+  }
+
+  position: relative;
   transition: 0.4s;
 
   @for $i from 1 through 9 {
     &:nth-child(#{$i}) {
       $rotation: (5 - random(10)) + deg;
-      transform: translateY(0px) rotate($rotation);      
+      transform: translateY(0px) rotate($rotation);
     }
   }
 
   &:hover {
     z-index: 5;
     box-shadow: 0px 13px 30px -15px #000000;
-    transform:translateY(-10px);
+    transform: translateY(-10px);
   }
-  
 }
 
 //color por elemento
@@ -194,58 +352,28 @@ h1, h2, h3, h4, h5 {
   background: #aedf78;
 }
 
-.water {
-  background: #43ccff;
-}
-
-.grass {
-  background: #00ca91;
-}
-
-.fire {
-  background: #e95c4d;
-}
-
-.normal {
-  background: #a5a5a5;
-}
-
 .poison {
   background: #611380;
 }
 
-.electric {
-  background: #f9be00;
-}
 .ground {
   background: #bfac21;
-}
-
-.fairy {
-  background: #f87ea7;
 }
 
 .fighting {
   background: #e81319;
 }
-.psychic {
-  background: #8a0532;
-}
 
 .ghost {
   background: #8e55a4;
 }
+
 .rock {
   background: #776a3e;
 }
-.ice {
-  background: #66d1e5;
-}
+
 .flying {
   background: #5eb9b2;
-}
-.dark {
-  background: #2d221c;
 }
 
 .dragon {
@@ -258,7 +386,6 @@ h1, h2, h3, h4, h5 {
 .unknown {
   background: #454545;
 }
-
 .shadow {
   background: #4f4f4f;
 }

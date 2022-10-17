@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import "./Input.scss";
 
-const Input = ({ onSubmitInput, InputName }) => {
+const Input = ({ onSubmitInput }) => {
   const {
     register,
     handleSubmit,
@@ -17,28 +17,29 @@ const Input = ({ onSubmitInput, InputName }) => {
   return (
     <div className="inputButton">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="demo-flex-spacer"></div>
-        <div className="webflow-style-input">
-          <input
-            className="submit"
-            placeholder="ingresa nombre de pokemon"
-            {...register("PokemonSearch", { required: true, maxLength: 10 })}
-          ></input>
+        <div className="demo-flex-spacer">
+          <div className="webflow-style-input">
+            <input
+              className="submit"
+              placeholder="Ingresa nombre Pokemon"
+              {...register("PokemonSearch", { required: true, maxLength: 10 })}
+            ></input>
+          </div>
           {errors.PokemonSearch?.type === "maxLength" && (
             <p role="alert">Maximo 10 caracteres</p>
           )}{" "}
           {errors.PokemonSearch?.type === "required" && (
             <p role="alert">Nombre de pokemon requerido</p>
           )}{" "}
+          <button
+            type="submit"
+            className="buttonBuscar"
+            onClick={() => handleSubmit(onSubmit)}
+          >
+            {" "}
+            Buscar{" "}
+          </button>
         </div>
-        <button
-          type="submit"
-          className="buttonBuscar"
-          onClick={() => handleSubmit(onSubmit)}
-        >
-          {" "}
-          Buscar{" "}
-        </button>
       </form>
     </div>
   );

@@ -1,45 +1,51 @@
 import React, { Component } from "react";
 import "./Footer.scss";
 //importar imagen
-import imgPokemon from "../../Assets/img/logoPokemon.png";
+import iconPokeapi from "../../Assets/icon/pokeapi.png";
 import iconLinkln from "../../Assets/icon/iconLinkedin.svg";
-import iconWhatsapp from "../../Assets/icon/iconWhatsapp.svg";
-import iconYoutube from "../../Assets/icon/iconYoutube.svg";
+import github from "../../Assets/icon/github.svg";
 
 class Footer extends Component {
   render() {
     return (
       <div className="footer">
-        <img
-          className="logoPokemon"
-          style={{ width: 400, height: 200 }}
-          src={imgPokemon}
-          alt="imagenPokemon"
-        />
-        <p>
-          En este sitio web podras encontrar informacion sobre tus pokemones
-          favoritos
-        </p>
-        <div className="icons">
+        <div className="enlaceApi">
+          <p className="p1">
+            En este sitio web ha sido desarrollado por la API publica:{" "}
+          </p>
+          <a href="https://pokeapi.co/" target="_blank">
+            <button className="icon2">
+              <img
+                style={{ width: 350, height: 150 }}
+                src={iconPokeapi}
+                alt="pokeapi"
+              />
+            </button>{" "}
+          </a>
+        </div>
+        <div className="enlaceGit">
+          <p className="p2">
+            Enlaces directos a mis repositorios y perfil de Linkedln:{" "}
+          </p>
+          <a href="https://github.com/hugocidx" target="_blank">
+            <button className="icon2">
+              <img
+                src={github}
+                alt="github"
+                style={{ width: 80, height: 80 }}
+              />
+            </button>{" "}
+          </a>
           <a
             href="https://www.linkedin.com/in/hugo-cid-6442311a3/"
             target="_blank"
           >
             <button className="icon1">
-              <img src={iconLinkln} alt="iconLinkln" />
-            </button>{" "}
-          </a>
-          <a href="https://wa.me/56967337274" target="_blank">
-            <button className="icon2" type="none">
-              <img src={iconWhatsapp} alt="iconWhatsapp" />
-            </button>{" "}
-          </a>
-          <a
-            href="https://www.youtube.com/channel/UCp6YQGlRtUGKGJPxX-en6mw"
-            target="_blank"
-          >
-            <button className="icon3" type="none">
-              <img src={iconYoutube} alt="iconYoutube" />
+              <img
+                src={iconLinkln}
+                alt="iconLinkln"
+                style={{ width: 80, height: 80 }}
+              />
             </button>{" "}
           </a>
         </div>

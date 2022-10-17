@@ -1,0 +1,49 @@
+// colors
+$input-text-active: #0644d4;
+.botonera {
+  height: 200px;
+}
+
+button.ButtonPreview {
+  cursor: pointer;
+  background: linear-gradient(
+    to right,
+    #b294ff,
+    #57e6e6,
+    #feffb8,
+    #57e6e6,
+    #b294ff,
+    #57e6e6
+  );
+  background-size: 500% auto;
+  animation: gradient 3s linear infinite;
+  margin: 5em;
+  padding: 10px 20px;
+  border-width: 10px;
+  border-color: #4a00e0;
+  &:hover {
+    color: $input-text-active;
+  }
+}
+
+button.ButtonNext {
+  cursor: pointer;
+  background: linear-gradient(
+    to right,
+    #b294ff,
+    #57e6e6,
+    #feffb8,
+    #57e6e6,
+    #b294ff,
+    #57e6e6
+  );
+  background-size: 500% auto;
+  animation: gradient 3s linear infinite;
+  margin: 5em;
+  padding: 10px 20px;
+  border-width: 10px;
+  border-color: #4a00e0;
+  &:hover {
+    color: $input-text-active;
+  }
+}

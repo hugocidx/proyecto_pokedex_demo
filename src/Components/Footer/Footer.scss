@@ -1,49 +1,56 @@
 div.footer {
-    background-color: darkblue;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    height: 200px;
-
+  background-color: darkblue;
+  display: flex;
+  align-items: center;
+  /* height: 227px; */
+  width: 400;
+  justify-content: space-evenly;
 }
 
-p {
-    margin: 30px;
-    color: white;
-    align-self: center;
+p.p1 {
+  font-size: larger;
+  margin: 30px;
+  color: white;
+  align-self: center;
+}
+
+p.p2 {
+  font-size: larger;
+  margin: -1px;
+  color: white;
+  align-self: center;
+}
+
+.enlaceApi {
+  display: flex;
+}
+
+.enlaceGit {
+  display: flex;
 }
 
 button.icon1 {
-    background-color: darkblue;
-    border: none;
+  background-color: darkblue;
+  border: none;
+  width: 40px;
+  height: 20px;
 }
 
 button.icon2 {
-    background-color: darkblue;
-    border: none;
+  background-color: darkblue;
+  border: none;
 }
 
-button.icon3 {
-    background-color: darkblue;
-    border: none;
-}
-
-.icons {
-    align-self: center;
-    width: 350px;
+.icon {
+  cursor: pointer;
+  margin: 15px;
 }
 
 .icon1 {
-    cursor: pointer;
-    margin: 15px;
+  cursor: pointer;
+  margin: 15px;
 }
-
 .icon2 {
-    cursor: pointer;
-    margin: 15px;
-}
-
-.icon3 {
-    cursor: pointer;
-    margin: 15px;
+  cursor: pointer;
+  margin: 15px;
 }
