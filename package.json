@@ -1,5 +1,5 @@
 {
-  "homepage":"https://hugocidx.github.io/proyecto_pokedex_demo",
+  "homepage": "https://hugocidx.github.io/proyecto_pokedex_demo",
   "name": "proyecto_pokedex_demo",
   "version": "0.1.0",
   "private": true,
@@ -12,6 +12,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.36.1",
     "react-scripts": "^5.0.1",
+    "script": "^0.1.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
