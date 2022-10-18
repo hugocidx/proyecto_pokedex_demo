@@ -6,6 +6,17 @@ $input-text-active: #0644d4;
 .demo-flex-spacer {
   flex-grow: 1;
 }
+@media screen and (max-width: 300px) {
+  .demo-flex-spacer {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .demo-flex-spacers {
+    display: inline-block;
+  }
+}
 
 form {
   display: flex;
@@ -33,6 +44,7 @@ p {
   );
   font-size: 2.4rem;
   line-height: 2.4rem;
+  margin-top: 25px;
   vertical-align: middle;
   transition: color 0.25s;
   background-size: 500% auto;
@@ -89,14 +101,36 @@ p {
   }
 }
 
+@media screen and (max-width: 505px) {
+  .webflow-style-input {
+    padding-left: 0px;
+    width: 321px;
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 505px) {
+  .webflow-style-input:after {
+    left: 2px;
+  }
+}
+
 .webflow-style-input input {
   flex-grow: 1;
   background: linear-gradient(to right, #2f3add, #4a00e0);
+  color: white;
   font-size: 1.8rem;
   line-height: 2.4rem;
   vertical-align: middle;
   &::-webkit-input-placeholder {
     color: $input-text-inactive;
+  }
+}
+
+@media screen and (max-width: 511px) {
+  .webflow-style-input input {
+    width: 314px;
+    font-size: small;
   }
 }
 

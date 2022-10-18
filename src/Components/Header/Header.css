@@ -74,6 +74,9 @@ html {
     color: #FFFF00;
 }
 
-/* .audio{
-
-} */
+@media screen and (max-width: 493px) {
+    .audio{
+        width: 200px;
+        height: 55px;
+    } 
+  }

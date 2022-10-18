@@ -21,7 +21,7 @@ const Input = ({ onSubmitInput }) => {
           <div className="webflow-style-input">
             <input
               className="submit"
-              placeholder="Ingresa nombre Pokemon"
+              placeholder="Ingresa Pokemon"
               {...register("PokemonSearch", { required: true, maxLength: 10 })}
             ></input>
           </div>

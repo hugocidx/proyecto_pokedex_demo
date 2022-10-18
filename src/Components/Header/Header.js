@@ -7,9 +7,6 @@ const Header = ({}) => {
     <div className="App">
       <div className="App-header">
         <a src={logoPokemon} className="App-logo" />
-        {/* <h1>
-                    "Poke React"
-                </h1> */}
         <audio className="audio" src={AtrapalosYa} controls></audio>
       </div>
     </div>

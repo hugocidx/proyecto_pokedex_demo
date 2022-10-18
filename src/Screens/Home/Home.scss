@@ -4,6 +4,14 @@ $input-text-active: #0644d4;
   height: 200px;
 }
 
+@media screen and (max-width: 390px) {
+  .botonera {
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-evenly;
+  }
+}
+
 button.ButtonPreview {
   cursor: pointer;
   background: linear-gradient(
@@ -26,6 +34,12 @@ button.ButtonPreview {
   }
 }
 
+@media screen and (max-width: 390px) {
+  button.ButtonPreview {
+    margin: auto;
+  }
+}
+
 button.ButtonNext {
   cursor: pointer;
   background: linear-gradient(
@@ -37,6 +51,7 @@ button.ButtonNext {
     #b294ff,
     #57e6e6
   );
+
   background-size: 500% auto;
   animation: gradient 3s linear infinite;
   margin: 5em;
@@ -45,5 +60,11 @@ button.ButtonNext {
   border-color: #4a00e0;
   &:hover {
     color: $input-text-active;
+  }
+}
+
+@media screen and (max-width: 484px) {
+  button.ButtonNext {
+    margin: auto;
   }
 }

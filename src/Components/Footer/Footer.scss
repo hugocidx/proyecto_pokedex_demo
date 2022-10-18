@@ -1,10 +1,25 @@
 div.footer {
   background-color: darkblue;
   display: flex;
-  align-items: center;
-  /* height: 227px; */
-  width: 400;
+  width: 100%;
   justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+@media screen and (max-width: 858px) {
+  div.footer {
+    background-color: darkblue;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    flex-wrap: nowrap;
+    flex-direction: column-reverse;
+  }
+}
+
+div.enlaceApi {
+  flex-direction: column;
 }
 
 p.p1 {
@@ -27,18 +42,42 @@ p.p2 {
 
 .enlaceGit {
   display: flex;
+  align-items: baseline;
+}
+
+@media screen and (max-width: 390px) {
+  .enlaceGit {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
 }
 
 button.icon1 {
   background-color: darkblue;
   border: none;
-  width: 40px;
-  height: 20px;
 }
 
 button.icon2 {
   background-color: darkblue;
   border: none;
+}
+
+button.iconGit {
+  background-color: darkblue;
+  width: 100%;
+  border: none;
+}
+
+@media screen and (max-width: 390px) {
+  button.icon2 {
+    background-color: darkblue;
+    display: flex;
+    justify-content: flex-end;
+    width: 312px;
+    flex-wrap: nowrap;
+    flex-direction: column-reverse;
+  }
 }
 
 .icon {
@@ -53,4 +92,5 @@ button.icon2 {
 .icon2 {
   cursor: pointer;
   margin: 15px;
+  width: 150px;
 }

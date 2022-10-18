@@ -11,15 +11,11 @@ class Footer extends Component {
       <div className="footer">
         <div className="enlaceApi">
           <p className="p1">
-            En este sitio web ha sido desarrollado por la API publica:{" "}
+            Este sitio web ha sido desarrollado por la API pública:{" "}
           </p>
           <a href="https://pokeapi.co/" target="_blank">
             <button className="icon2">
-              <img
-                style={{ width: 350, height: 150 }}
-                src={iconPokeapi}
-                alt="pokeapi"
-              />
+              <img src={iconPokeapi} alt="pokeapi" />
             </button>{" "}
           </a>
         </div>
@@ -27,8 +23,11 @@ class Footer extends Component {
           <p className="p2">
             Enlaces directos a mis repositorios y perfil de Linkedln:{" "}
           </p>
-          <a href="https://github.com/hugocidx" target="_blank">
-            <button className="icon2">
+          <a
+            href="https://github.com/hugocidx?tab=repositories"
+            target="_blank"
+          >
+            <button className="iconGit">
               <img
                 src={github}
                 alt="github"
