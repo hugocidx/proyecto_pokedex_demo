@@ -51,8 +51,10 @@ const Home = ({}) => {
 
   // //buscar pokemon por nombre usando react hooks forms
   const getPokemon = async (name) => {
+    //metodo .toString().toLowerCase(); para input de pokemon en mayusculas
+    const nameToLowerCase = name.toString().toLowerCase();
     //creamos una url para obtener el detalle en este caso asignando el nombre del pokemon buscado
-    const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
+    const url = `https://pokeapi.co/api/v2/pokemon/${nameToLowerCase}`;
     //Creo un objeto con la misma estructura de la lista basica de pokemones con nombre y url la cual me permite buscar el detalle de este pokemon, la funcion recibe una lista de estos objetos por eso es de tipo lista
     const objetoParaObtenerDetallePokemon = [{ name: "buscado..", url }];
     //llamo a la misma funcion que cuando obtengo la lista de 10 pokemones, solo que es una lista de 1 elemento

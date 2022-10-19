@@ -22,7 +22,10 @@ const Input = ({ onSubmitInput }) => {
             <input
               className="submit"
               placeholder="Ingresa Pokemon"
-              {...register("PokemonSearch", { required: true, maxLength: 10 })}
+              {...register("PokemonSearch", {
+                required: true,
+                maxLength: 10,
+              })}
             ></input>
           </div>
           {errors.PokemonSearch?.type === "maxLength" && (
