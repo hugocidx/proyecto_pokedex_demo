@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/proyecto_pokedex_demo/static/css/main.e24fb5c0.css",
-    "main.js": "/proyecto_pokedex_demo/static/js/main.339aa8f8.js",
+    "main.css": "/proyecto_pokedex_demo/static/css/main.498d4849.css",
+    "main.js": "/proyecto_pokedex_demo/static/js/main.3d77d8c5.js",
     "static/js/787.88710401.chunk.js": "/proyecto_pokedex_demo/static/js/787.88710401.chunk.js",
     "static/media/AtrapalosYa.mp3": "/proyecto_pokedex_demo/static/media/AtrapalosYa.a60b217f2ef6a9a8055c.mp3",
     "static/media/Pokemon Hollow.ttf": "/proyecto_pokedex_demo/static/media/Pokemon Hollow.47f77ce9939c5330492b.ttf",
@@ -10,12 +10,12 @@
     "static/media/iconLinkedin.svg": "/proyecto_pokedex_demo/static/media/iconLinkedin.c304a4148cde039a54532585f4d47b48.svg",
     "index.html": "/proyecto_pokedex_demo/index.html",
     "static/media/github.svg": "/proyecto_pokedex_demo/static/media/github.6448349ea9cd59c41e6c5f23ce626e25.svg",
-    "main.e24fb5c0.css.map": "/proyecto_pokedex_demo/static/css/main.e24fb5c0.css.map",
-    "main.339aa8f8.js.map": "/proyecto_pokedex_demo/static/js/main.339aa8f8.js.map",
+    "main.498d4849.css.map": "/proyecto_pokedex_demo/static/css/main.498d4849.css.map",
+    "main.3d77d8c5.js.map": "/proyecto_pokedex_demo/static/js/main.3d77d8c5.js.map",
     "787.88710401.chunk.js.map": "/proyecto_pokedex_demo/static/js/787.88710401.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e24fb5c0.css",
-    "static/js/main.339aa8f8.js"
+    "static/css/main.498d4849.css",
+    "static/js/main.3d77d8c5.js"
   ]
 }
